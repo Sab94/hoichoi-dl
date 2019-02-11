@@ -1,0 +1,30 @@
+{
+	"name": "hoichoi-dl",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "Hoichoi downloader",
+	"browser_action": {
+	  "default_title": "Hoichoi downloader!"
+	},
+	"background": {
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"permissions": [
+		  "tabs",
+		  "downloads",
+		  "http://*.hoichoi.tv/*",
+		  "https://*.hoichoi.tv/*"
+	  ],
+	"content_scripts": [
+	  {
+		"run_at" :"document_end",
+		"matches": [
+		  "http://*.hoichoi.tv/*",
+		  "https://*.hoichoi.tv/*"
+	  ],
+		"js": ["./js/hoichoi-dl.js"]
+	  }
+	]
+  }
